@@ -3,3 +3,7 @@
   background: none;
   box-shadow: none;
 }
+
+.reveal iframe {
+  min-height: 500px !important;
+}
