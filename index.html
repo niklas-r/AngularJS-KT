@@ -148,15 +148,15 @@
 					</section>
 
 					<section>
-						<a class="jsbin-embed" href="http://jsbin.com/uCabUdo/1/embed?html,output">AngularJS KT - Directives</a><script src="http://static.jsbin.com/js/embed.js"></script>
+						<!--<a class="jsbin-embed" href="http://jsbin.com/uCabUdo/1/embed?html,output">AngularJS KT - Directives</a>-->
 					</section>
 
 					<section>
-						<a class="jsbin-embed" href="http://jsbin.com/OwUrEBUv/1/embed?html,output">AngularJS KT - ngRepeat</a><script src="http://static.jsbin.com/js/embed.js"></script>
+						<!--<a class="jsbin-embed" href="http://jsbin.com/OwUrEBUv/1/embed?html,output">AngularJS KT - ngRepeat</a>-->
 					</section>
 
 					<section>
-						<a class="jsbin-embed" href="http://jsbin.com/OwUrEBUv/3/embed?html,output">AngularJS KT - ngRepeat</a><script src="http://static.jsbin.com/js/embed.js"></script>
+						<!--<a class="jsbin-embed" href="http://jsbin.com/OwUrEBUv/3/embed?html,output">AngularJS KT - ngRepeat</a>-->
 					</section>
 				</section>
 
@@ -168,11 +168,49 @@
 					</section>
 
 					<section>
-						<p>The controller is constructor function used to setup initial data and add behaviour to the <code>$scope</code>-object.</p>
+						<p>The controller is a constructor function used to setup initial data and add behaviour to the <code>$scope</code>-object.</p>
 					</section>
 
 					<section>
 						<h4>What are scopes?</h4>
+						<p>The scope is the "glue" between your controller and your view.</p>
+					</section>
+
+					<section>
+						<pre><code>
+function GreetCtrl($scope) {
+  $scope.name = 'World';
+}
+
+function ListCtrl($scope) {
+  $scope.names = ['Igor', 'Misko', 'Vojta'];
+}
+						</code></pre>
+
+						<img src="img/concepts-scope.png" alt="">
+					</section>
+
+					<section>
+						<img src="img/concepts-controller.png" alt="">
+					</section>
+
+					<section>
+						<h4>Let's get a bit more scientific.</h4>
+						<p>It's an execution context for expressions.</p>
+					</section>
+
+					<section>
+						<p>On instantiation a single scope is created, <code>$rootScope</code>.</p>
+						<p>All scopes inherit prototypically.</p>
+						<p>New scopes are created each time you use one of these:</p>
+						<ul>
+							<li>ng-include</li>
+							<li>ng-switch</li>
+							<li>ng-repeat</li>
+							<li>ng-view</li>
+							<li>ng-controller</li>
+							<li>directives</li>
+						</ul>
 					</section>
 
 				</section>
@@ -182,6 +220,7 @@
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
+		<script src="http://static.jsbin.com/js/embed.js"></script>
 
 		<script>
 
