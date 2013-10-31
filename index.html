@@ -51,6 +51,7 @@
         <section>
           <h2>What we'll be talking about</h2>
           <ul>
+            <li>What is MVC?</li>
             <li>What is AngularJS?</li>
             <li>Setup</li>
             <li>The View</li>
@@ -58,6 +59,36 @@
             <li>Configuration</li>
             <li>Services</li>
           </ul>
+        </section>
+
+        <section>
+          <section>
+            <h3>What is MVC?</h3>
+            <p>You've probably heard of MVC before. It's a way to structure your application.</p>
+            <p>Although it's wide spread in other programming languages, it's still quite new in JavaScript.</p>
+          </section>
+
+          <section>
+            <h4><strong>M</strong>odel</h4>
+            <p>The data in raw form, usually JSON och XML in JavaScript scenarios. It could look something like this:</p>
+            <pre><code data-trim class="json">
+{
+  "users" : [
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "id": "0"
+    },
+    {
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "id": "1"
+    }
+  ]
+}
+            </code></pre>
+            <p>And so on...</p>
+          </section>
         </section>
 
         <section>
@@ -148,15 +179,15 @@
           </section>
 
           <section>
-            <!--<a class="jsbin-embed" href="http://jsbin.com/uCabUdo/1/embed?html,output">AngularJS KT - Directives</a>-->
+            <iframe src="jsbins/directives1.html" frameborder="0"></iframe>
           </section>
 
           <section>
-            <!--<a class="jsbin-embed" href="http://jsbin.com/OwUrEBUv/1/embed?html,output">AngularJS KT - ngRepeat</a>-->
+            <iframe src="jsbins/directives2.html" frameborder="0"></iframe>
           </section>
 
           <section>
-            <!--<a class="jsbin-embed" href="http://jsbin.com/OwUrEBUv/3/embed?html,output">AngularJS KT - ngRepeat</a>-->
+            <iframe src="jsbins/directives3.html" frameborder="0"></iframe>
           </section>
         </section>
 
@@ -164,11 +195,11 @@
 
           <section>
             <h3>The Controller</h3>
-            <p>So you wanna write some JavaScript?</p>
+            <p>No code up until now.</p>
           </section>
 
           <section>
-            <p>The controller is a constructor function used to setup initial data and add behaviour to the <code>$scope</code>-object.</p>
+            <p>The controller is a constructor function used to setup initial data and add behaviour to the view.</p>
           </section>
 
           <section>
@@ -220,7 +251,7 @@ function ListCtrl($scope) {
 
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.min.js"></script>
-    <script src="http://static.jsbin.com/js/embed.js"></script>
+    <script src="js/custom.js"></script>
 
     <script>
 
