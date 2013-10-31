@@ -69,25 +69,49 @@
           </section>
 
           <section>
-            <h4><strong>M</strong>odel</h4>
-            <p>The data in raw form, usually JSON och XML in JavaScript scenarios. It could look something like this:</p>
+            <h4>[M]odel</h4>
+            <p>The data in raw form, usually JSON och XML in JavaScript-scenarios and usually served from the backend. It could look something like this:</p>
             <pre><code data-trim class="json">
 {
   "users" : [
     {
       "firstName": "John",
       "lastName": "Doe",
-      "id": "0"
+      "id": 0
     },
     {
       "firstName": "Jane",
       "lastName": "Doe",
-      "id": "1"
+      "id": 1
     }
   ]
 }
             </code></pre>
             <p>And so on...</p>
+          </section>
+
+          <section>
+            <h4>[V]iew</h4>
+            <p>The view is simple, it's your HTML and/or rendered output.</p>
+          </section>
+
+          <section>
+            <h4>[C]ontroller</h4>
+            <p>The name says it all, the controller controlls things. But what things? Data. Controllers are your direct access from the server to the view, the middle man, so you can update data on the fly.</p>
+          </section>
+
+          <section>
+            <h4>What about MV*?</h4>
+            <p>The generic acronym for all the different MVC-patterns.</p>
+            <p>Something to say when developers don't agree with each other.</p>
+          </section>
+
+          <section>
+            <h4>So, what pattern does AngularJS follow?</h4>
+            <blockquote>
+              … Having said, I'd rather see developers build kick-ass apps that are well-designed and follow separation of concerns, than see them waste time arguing about MV* nonsense. And for this reason, I hereby declare AngularJS to be MVW framework - Model-View-Whatever . Where Whatever stands for "whatever works for you".
+            </blockquote>
+            <p><a href="https://plus.google.com/+AngularJS/posts/aZNVhj355G2">Shared by Igor Minar on G+</a></p>
           </section>
         </section>
 
@@ -151,7 +175,7 @@
           </section>
 
           <section>
-            <p>Before we dig deep, here are some reference material.</p>
+            <p>Before we deep dive, here are some reference material.</p>
             <ul>
               <li>AngularJS API Docs - <a href="http://docs.angularjs.org/api/" title="API Docs">http://docs.angularjs.org/api/</a></li>
               <li>AngularJS Developer Guide - <a href="http://docs.angularjs.org/guide/">http://docs.angularjs.org/guide/</a></li>
@@ -170,8 +194,7 @@
             <h4>What are directives?</h4>
             <p>"They teach HTML new tricks."</p>
             <p>Helps improve semantics.</p>
-            <p>Same concept as web components.</p>
-            <p>The future.</p>
+            <p>Reusable chunks of HTML.</p>
           </section>
 
           <section>
@@ -203,37 +226,69 @@
           </section>
 
           <section>
-            <h4>What are scopes?</h4>
-            <p>The scope is the "glue" between your controller and your view.</p>
+            <iframe src="jsbins/controllers1.html" frameborder="0"></iframe>
           </section>
 
           <section>
-            <pre><code>
-function GreetCtrl($scope) {
-  $scope.name = 'World';
-}
-
-function ListCtrl($scope) {
-  $scope.names = ['Igor', 'Misko', 'Vojta'];
-}
-            </code></pre>
-
-            <img src="img/concepts-scope.png" alt="">
-          </section>
-
-          <section>
+            <h4>What is the <code>$scope</code>-object?</h4>
+            <p>The <code>$scope</code> is the "glue" between your controller and your view.</p>
             <img src="img/concepts-controller.png" alt="">
           </section>
 
           <section>
-            <h4>Let's get a bit more scientific.</h4>
-            <p>It's an execution context for expressions.</p>
+            <h4>What are scopes?</h4>
+            <p>Scopes are execution contexts in your view, similar to closures in JavaScript.</p>
           </section>
 
           <section>
-            <p>On instantiation a single scope is created, <code>$rootScope</code>.</p>
+<!--             <pre><code class="javascript">
+function greetingCtrl ($scope) {
+   $scope.greeting = "Hello World";
+}
+
+function idolsCtrl ($scope) {
+ $scope.idols = [
+   'Miley Cyrus',
+   'Ke$ha',
+   'Katy Perry',
+   'Lady Gag‘a'
+ ];
+}
+            </code></pre>
+            <pre><code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html ng-app&gt;
+&lt;head&gt;
+&lt;meta charset=utf-8 /&gt;
+&lt;title&gt;JS Bin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div ng-controller="greetingCtrl"&gt;
+    &lt;p&gt;{{ greeting }}&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div ng-controller="idolsCtrl"&gt;
+    &lt;ul&gt;
+      &lt;li ng-repeat="idol in idols"&gt;{{ idol }}&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code></pre> -->
+            <iframe src="jsbins/controllers2.html" frameborder="0"></iframe>
+          </section>
+
+          <section>
+            <img src="img/concepts-scope2.png" alt="">
+          </section>
+
+          <section>
+            <h4>Science!</h4>
+            <p>During the bootstrap process a single scope called <code>$rootScope</code> is created.</p>
             <p>All scopes inherit prototypically.</p>
-            <p>New scopes are created each time you use one of these:</p>
+            <p>New scopes are created by these directives:</p>
             <ul>
               <li>ng-include</li>
               <li>ng-switch</li>
