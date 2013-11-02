@@ -273,7 +273,7 @@
 
           <section>
             <h3>The Controller</h3>
-            <p>No code up until now.</p>
+            <p>No JS code up until now.</p>
           </section>
 
           <section>
@@ -287,6 +287,7 @@
           <section>
             <h4>What is the <code>$scope</code>-object?</h4>
             <p>The <code>$scope</code> is the "glue" between your controller and your view.</p>
+            <p>You could say the <code>$scope</code> is your ViewModel.</p>
             <img src="img/concepts-controller.png" alt="">
           </section>
 
@@ -296,62 +297,26 @@
           </section>
 
           <section>
-<!--             <pre><code class="javascript">
-function greetingCtrl ($scope) {
-   $scope.greeting = "Hello World";
-}
-
-function idolsCtrl ($scope) {
- $scope.idols = [
-   'Miley Cyrus',
-   'Ke$ha',
-   'Katy Perry',
-   'Lady Gag‘a'
- ];
-}
-            </code></pre>
-            <pre><code class="html">
-&lt;!DOCTYPE html&gt;
-&lt;html ng-app&gt;
-&lt;head&gt;
-&lt;meta charset=utf-8 /&gt;
-&lt;title&gt;JS Bin&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-  &lt;div ng-controller="greetingCtrl"&gt;
-    &lt;p&gt;{{ greeting }}&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div ng-controller="idolsCtrl"&gt;
-    &lt;ul&gt;
-      &lt;li ng-repeat="idol in idols"&gt;{{ idol }}&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-
-  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-            </code></pre> -->
-            <iframe src="jsbins/controllers2.html" frameborder="0"></iframe>
-          </section>
-
-          <section>
-            <img src="img/concepts-scope2.png" alt="">
-          </section>
-
-          <section>
-            <h4>Science!</h4>
             <p>During the bootstrap process a single scope called <code>$rootScope</code> is created.</p>
             <p>All scopes inherit prototypically.</p>
-            <p>New scopes are created by these directives:</p>
+            <p>New scopes are created in different ways:</p>
             <ul>
+              <li>You declare a new route in your config.</li>
+              <li>Custom directives with the <code>scope</code> property set.</li>
               <li>ng-include</li>
               <li>ng-switch</li>
               <li>ng-repeat</li>
               <li>ng-view</li>
               <li>ng-controller</li>
-              <li>directives</li>
             </ul>
+          </section>
+
+          <section>
+            <iframe src="jsbins/controllers2.html" frameborder="0"></iframe>
+          </section>
+
+          <section>
+            <img src="img/concepts-scope2.png" alt="">
           </section>
 
         </section>
