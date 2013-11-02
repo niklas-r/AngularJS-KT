@@ -144,7 +144,6 @@
           </section>
 
           <section>
-            <h4>So, what pattern does AngularJS follow?</h4>
             <blockquote>
               … Having said, I'd rather see developers build kick-ass apps that are well-designed and follow separation of concerns, than see them waste time arguing about MV* nonsense. And for this reason, I hereby declare AngularJS to be MVW framework - Model-View-Whatever . Where Whatever stands for "whatever works for you".
             </blockquote>
@@ -155,8 +154,14 @@
         <section>
           <section>
             <h3>What is AngularJS?</h3>
-            <p>JS MV* Framework used to (mainly) creating Single Page Applications.</p>
+            <p>JS MV* Framework used to (mainly) creating Single Page Applications (SPA).</p>
             <p>Also great for creating encapsulated "components".</p>
+          </section>
+
+          <section>
+            <h4>Why do you need a framework to do that?</h4>
+            <p>It's true you might not need a framework for simpler applications but as your project grows AngularJS <span class="strike-through">will</span> <span class="strike-through">most likely</span> <span class="strike-through">should</span> could save you time.</p>
+            <p>Also, building SPA's are quite hard without any help.</p>
           </section>
 
           <section>
@@ -196,7 +201,7 @@
           </section>
 
           <section>
-            <pre><code data-trim contenteditable class="html">
+            <pre><code data-trim class="html">
 &lt;!doctype html&gt;
 &lt;html ng-app&gt; &lt;!-- Tell Angular this is an Angular app and start the bootstrap process --&gt;
 &lt;head&gt;

@@ -8,3 +8,9 @@
   min-height: 530px !important;
   width: 100%;
 }
+
+.strike-through {
+  text-decoration: line-through;
+  opacity: 0.4;
+  background: #000;
+}
