@@ -1,4 +1,4 @@
 AngularJS-KT
 ============
 
-My slides AngularJS slides.
+My AngularJS slides.
