@@ -44,7 +44,7 @@
           <h1><img class="clean-img" src="img/AngularJS-shield-large.png" alt="AngularJS Logo"></h1>
           <h3>An introduction to the "superheroic JavaScript MVW framework" made available by Google.</h3>
           <p>
-            <small>Presentation by <a href="http://rasmusson.net">Niklas Rasmusson</a> / <a href="http://twitter.com/asdfz0mg">@asdfz0mg</a></small>
+            <small>Presentation by <a href="http://rasmusson.net">Niklas Rasmusson</a> / <a href="http://twitter.com/asdfz0mg">@asdfz0mg</a> / <a href="http://chas.se/">Chas Visual Management</a></small>
           </p>
         </section>
 
@@ -57,7 +57,7 @@
             <li>The View</li>
             <li>The Controller</li>
             <li>Building an application</li>
-            <li>Custom Directives</li>
+            <li>Dependency Injection</li>
           </ul>
         </section>
 
@@ -75,7 +75,7 @@
 
           <section>
             <h4>[M]odel</h4>
-            <p>The data in raw form, usually JSON och XML in JavaScript-scenarios and usually served from the backend. It could look something like this:</p>
+            <p>Plain data, usually JSON or XML, commonly served from the back end or local storage. It could look something like this:</p>
             <pre><code data-trim class="json">
 {
   "users" : [
@@ -102,7 +102,7 @@
 
           <section>
             <h4>[C]ontroller</h4>
-            <p>The name says it all, the controller controlls things. But what things? Data. Controllers are your direct access from the server to the view, the middle man, so you can update data on the fly.</p>
+            <p>The name says it all, the controller controlls things. But what things? Data. It's in charge of supplying your view with data and behaviour.</p>
           </section>
 
             <section>
@@ -110,8 +110,7 @@
             <p>It's the data (model) to your view!</p>
           </section>
 
-          <section>
-            <img src="http://i.imgur.com/2uOBamR.gif" alt="">
+          <section data-background="http://i.imgur.com/2uOBamR.gif">
           </section>
 
           <section>
@@ -130,11 +129,15 @@
           </section>
 
           <section>
-            <img src="img/concepts-viewmodel.png" alt="">
+            <div class="img-segment img-segment-viewmodel">
+              <img class="clean-img" src="img/ViewModel1.png" alt="">
+              <img class="clean-img fragment" src="img/ViewModel2.png" alt="">
+              <img class="clean-img fragment" src="img/ViewModel3.png" alt="">
+              <img class="clean-img fragment" src="img/ViewModel4.png" alt="">
+            </div>
           </section>
 
-          <section>
-            <img src="http://i.imgur.com/LdfdP.gif" alt="">
+          <section data-background="http://i.imgur.com/LdfdP.gif">
           </section>
 
           <section>
@@ -160,13 +163,20 @@
 
           <section>
             <h4>Why do you need a framework to do that?</h4>
-            <p>It's true you might not need a framework for simpler applications but as your project grows AngularJS <span class="strike-through">will</span> <span class="strike-through">most likely</span> <span class="strike-through">should</span> could save you time.</p>
+            <p>It's true you might not need a framework for simpler applications but as your project grows AngularJS <span class="strike-through">will</span> could save you time.</p>
             <p>Also, building SPA's are quite hard without any help.</p>
           </section>
 
           <section>
-            <h4>Angular gives you structure</h4>
-            <img src="img/angular-structure.png" alt="">
+            <h4>Why Angular?</h4>
+            <a href="http://www.sitepoint.com/10-reasons-use-angularjs/">10 Reasons Why You Should Use AngularJS</a>
+            <ul>
+              <li class="fragment">A declarative user interface.</li>
+              <li class="fragment">Data models are POJO (Plain Old JavaScript Object).</li>
+              <li class="fragment">DOM manipulations where they belong.</li>
+              <li class="fragment">Service providers where they belong.</li>
+              <li class="fragment">Flexibility with filters.</li>
+            </ul>
           </section>
 
           <section>
@@ -344,15 +354,187 @@
 
           <section>
             <h4>Modules</h4>
+            <img src="img/angular-structure.png" alt="">
+          </section>
+
+          <section>
+            <h5>HTML</h5>
+            <pre><code data-trim class="html">
+&lt;!doctype html&gt;
+&lt;html ng-app="chasApp"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;AngularJS app&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+            <h5>JavaScript</h5>
+            <pre><code data-trim class="javascript">
+var App = angular.module('chasApp', []);
+            </code></pre>
+          </section>
+
+          <section>
             <iframe src="jsbins/modules1.html" frameborder="0"></iframe>
           </section>
 
           <section>
             <h4>Routing</h4>
+            <p>So now that we have a module, wouldn't it be nice with some routes?</p>
+          </section>
+
+          <section>
+            <pre><code data-trim class="javascript">
+var app = angular.module('chasApp', []);
+
+app.config(function ($routeProvider) {
+
+  $routeProvider.when('/', {
+    controller: 'mainCtrl',
+    templateUrl: '/app/views/index.html'
+  })
+  .otherwise({
+    redirectTo: '/'
+  });
+
+});
+            </code></pre>
+          </section>
+
+          <section>
+            <p>Angular pre 1.2.0 comes with the router built in.</p>
+            <p>In Angular 1.2.0 the devs decided to take a lot of things out of the framework and supply them as dependencies instead.</p>
+          </section>
+
+          <section>
+          <h5>HTML</h5>
+          <pre><code class="html" data-trim>
+&lt;!-- ... --&gt;
+&lt;script href="js/angular-route.js"&gt;&lt;/script&gt;
+&lt;!-- ... --&gt;
+          </code></pre>
+          <h5>JavaScript</h5>
+            <pre><code data-trim class="javascript">
+var app = angular.module('chasApp', ['ngRoute']);
+
+app.config(function ($routeProvider) {
+
+  $routeProvider.when('/', {
+    controller: 'mainCtrl',
+    templateUrl: '/app/views/index.html'
+  })
+  .otherwise({
+    redirectTo: '/'
+  });
+
+});
+            </code></pre>
           </section>
 
           <section>
             <h4>Services</h4>
+            <p>In Angular, a service is some wrapped up functionality that can be injected into your controllers, directives, filters and other services.</p>
+            <p>It works as an API to you application.</p>
+            <p>Commonly used for exposing methods to push and pull data from the server. Can also be used to create a resource sharing service that allows multiple controllers to share the same resources.</p>
+            <p>They are not mandatory, but it's strongly advised that you use them.</p>
+          </section>
+
+          <section>
+            <h4>Service types</h4>
+            <p>There are six different types of services available in Angular. These are:</p>
+            <ul>
+              <li>constant</li>
+              <li>value</li>
+              <li>service</li>
+              <li>factory</li>
+              <li>decorator</li>
+              <li>provider</li>
+            </ul>
+            <p>The most common one is <code>factory</code> so that's what we will focus on.</p>
+            <p>If you want to know more, read <a href="http://iffycan.blogspot.se/2013/05/angular-service-or-factory.html">this</a> and <a href="http://blog.xebia.com/2013/09/01/differences-between-providers-in-angularjs/">this</a>.</p>
+          </section>
+
+          <section>
+            <h4>How to write a service</h4>
+            <pre><code data-trim class="javascript">
+angular.module('chasApp', [])
+.factory('companyService', function () {
+  return {
+    getCompanyName: function () {
+      return "Chas Visual Management";
+    }
+  };
+})
+.controller('mainCtrl', function ($scope, companyService) {
+  $scope.company = companyService.getCompanyName(); // "Chas Visual Management"
+});
+            </code></pre>
+          </section>
+
+        </section>
+
+        <section>
+          <section>
+            <h3>Dependency Injection</h3>
+            <p>If you have done some work on the back end, chances are you are familiar with this term.</p>
+            <p>From a broad perspective, DI means that you can declare components very freely and then from any other component, just ask for an instance of it and it will be granted. You don't have to know about loading order, or file locations, or anything like that. The power may not immediately be visible, but this design pattern is great to work with, especially when it comes to testing.</p>
+          </section>
+
+          <section>
+            <h4>DI and minification trouble</h4>
+            <h5>Our code before minification</h5>
+            <pre><code data-trim class="javascript">
+angular.module('chasApp')
+.controller('chasCtrl', function ($scope, myService) {
+  myService.doSomething();
+
+  $scope.company = "Chas";
+});
+            </code></pre>
+            <h5>Our code after minification</h5>
+            <pre><code data-trim class="javascript">
+angular.module("chasApp").controller("chasCtrl",function(b,a){a.doSomething();b.company="Chas"});
+            </code></pre>
+
+          </section>
+
+          <section>
+            <h4>The solution</h4>
+            <h5>Our code before minification</h5>
+            <pre><code data-trim class="javascript">
+angular.module('chasApp')
+.controller('chasCtrl', [
+  '$scope',
+  'myService',
+  function ($scope, myService) {
+    myService.doSomething();
+
+    $scope.company = "Chas";
+  }
+]);
+            </code></pre>
+
+            <pre><code data-trim class="javascript">
+angular.module("chasApp").controller("chasCtrl",["$scope","myService",function(b,a){a.doSomething();b.company="Chas"}]);
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <p>More reference material.</p>
+            <ul>
+              <li><a href="http://docs.angularjs.org/api/" title="API Docs">AngularJS API Docs</a></li>
+              <li><a href="http://docs.angularjs.org/guide/">AngularJS Developer Guide</a></li>
+              <li><a href="http://egghead.io/">Egghead.io</a></li>
+              <li><a href="http://stackoverflow.com/a/15012542">How do I “think in AngularJS” if I have a jQuery background?</a></li>
+              <li><a href="https://github.com/jmcunningham/AngularJS-Learning">AngularJS Learning Repo</a></li>
+              <li><a href="http://www.youtube.com/watch?v=i9MHigUZKEM">AngularJS in 60-ish minutes</a></li>
+            </ul>
           </section>
         </section>
       </div>

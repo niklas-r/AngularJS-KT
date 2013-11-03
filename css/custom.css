@@ -15,6 +15,23 @@
   background: #000;
 }
 
+.reveal .img-segment {
+  position: relative;
+}
+
+.reveal .img-segment img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.reveal .img-segment-viewmodel {
+  margin-left: -290.5px;
+  left: 50%;
+  width: 581px;
+  height: 576px;
+}
+
 /* Simple Grid System */
 
 * {
@@ -24,7 +41,6 @@
 }
 
 .grid {
-  background: white;
   margin: 0 0 20px 0;
 }
 .grid:after {
@@ -68,4 +84,8 @@
 }
 .grid-pad [class*='col-']:last-of-type {
   padding-right: 20px;
+}
+
+.reveal .grid pre {
+  margin: 0;
 }
