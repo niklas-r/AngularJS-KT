@@ -216,13 +216,6 @@
             </code></pre>
           </section>
 
-          <section>
-            <p>Before we deep dive, here are some reference material.</p>
-            <ul>
-              <li>AngularJS API Docs - <a href="http://docs.angularjs.org/api/" title="API Docs">http://docs.angularjs.org/api/</a></li>
-              <li>AngularJS Developer Guide - <a href="http://docs.angularjs.org/guide/">http://docs.angularjs.org/guide/</a></li>
-            </ul>
-          </section>
         </section>
 
         <section>
@@ -237,7 +230,7 @@
             <p>"They teach HTML new tricks."</p>
             <p>Helps improve semantics.</p>
             <p>Reusable chunks of HTML.</p>
-            <p>All DOM-manipulation goes here, that includes you jQuery plugins.</p>
+            <p>All DOM-manipulation goes here, that includes your jQuery plugins.</p>
           </section>
 
           <section>
@@ -250,6 +243,27 @@
             <p>Same API as native directives.</p>
             <p>Can be elements, attributes, CSS classes or comments.</p>
             <p>Best practice: only use element or attribute.</p>
+          </section>
+
+          <section>
+            <h4>Matching directives</h4>
+            <pre><code class="html" data-trim>
+&lt;input ng-model="foo"&gt;
+&lt;input data-ng-model="foo"&gt;
+&lt;input data-ng:model="foo"&gt;
+&lt;input x:ng:model="foo"&gt;
+            </code></pre>
+          </section>
+
+          <section>
+            <p>Angular <strong>normalizes</strong> an element's tag and attribute name to determine which elements match which directives. We typically refer to directives by their case-sensitive camelCase normalized name (e.g. ngModel). However, in the DOM, we refer to directives by case-insensitive forms, typically using dash-delimited attributes on DOM elements (e.g. ng-model).</p>
+
+            <p>The normalization process is as follows:</p>
+
+            <ol>
+              <li>Strip x- and data- from the front of the element/attributes.</li>
+              <li>Convert the :, -, or _-delimited name to camelCase.</li>
+            </ol>
           </section>
 
           <section>
