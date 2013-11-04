@@ -64,9 +64,9 @@
         <section>
           <section>
             <h3>What is MVC?</h3>
-            <p>You've probably heard of MVC before. It's a way to structure your application.</p>
+            <p>You've probably heard of MVC before. It's a design pattern used to structure your application.</p>
             <p>Although it's wide spread in other programming languages, it's still quite new in JavaScript.</p>
-            <p>A lot of different views in the JavaScript community on how MVC should be done.</p>
+            <p>There are still many opinions on how MVC should be implemented in JS.</p>
           </section>
 
           <section>
@@ -102,7 +102,7 @@
 
           <section>
             <h4>[C]ontroller</h4>
-            <p>The name says it all, the controller controlls things. But what things? Data. It's in charge of supplying your view with data and behaviour to.</p>
+            <p>The name says it all, the controller controlls things. But what things? Data. It's in charge of supplying your view with data, behaviour and validation.</p>
           </section>
 
             <section>
@@ -152,6 +152,10 @@
             </blockquote>
             <p><a href="https://plus.google.com/+AngularJS/posts/aZNVhj355G2">Shared by Igor Minar on G+</a></p>
           </section>
+
+          <section>
+            <img src="http://i.imgur.com/XFC97.gif" alt="">
+          </section>
         </section>
 
         <section>
@@ -173,7 +177,7 @@
             <ul>
               <li class="fragment">A declarative user interface.</li>
               <li class="fragment">Data models are POJO (Plain Old JavaScript Object).</li>
-              <li class="fragment">DOM manipulations where they belong.</li>
+              <li class="fragment">Behavior with directives.</li>
               <li class="fragment">Service providers where they belong.</li>
               <li class="fragment">Flexibility with filters.</li>
             </ul>
@@ -207,7 +211,6 @@
           <section>
             <h3>Setup</h3>
             <p>Download from <a href="http://angularjs.org/">http://angularjs.org/</a></p>
-            <img src="img/download-angular.png" alt="Download image">
           </section>
 
           <section>
@@ -246,6 +249,7 @@
           <section>
             <h4>Built in directives</h4>
             <p>Angular directives are prefixed with <code>ng</code>.</p>
+            <p>List can be found on the <a href="http://docs.angularjs.org/api/">docs</a> page.</p>
           </section>
 
           <section>
@@ -281,14 +285,32 @@
           </section>
 
           <section>
+            <h4>What is an Angular "expression"?</h4>
+            <p class="fragment">Expressions are JavaScript-like code snippets that are usually placed in bindings such as {{ expression }}.</p>
+            <p class="fragment">Not exactly the same as a JavaScript expressions. Doesn't use <code>eval()</code>.</p>
+            <div class="fragment">
+              <p>Differences between JS expressions and ng expressions:</p>
+              <ul>
+                <li>Attribute Evaluation: evaluation of all properties are against the scope, instead of the <code>window</code>.</li>
+                <li>Forgiving: expression evaluation is forgiving to <code>undefined</code> and <code>null</code>.</li>
+                <li>No Control Flow Statements: no conditionals, loops or throws here.</li>
+                <li>Filters: you can pass result of expression evaluations through filter chains.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h4>Two-way data binding</h4>
             <iframe src="jsbins/directives1.html" frameborder="0"></iframe>
           </section>
 
           <section>
+            <h4>ngRepeat directive</h4>
             <iframe src="jsbins/directives2.html" frameborder="0"></iframe>
           </section>
 
           <section>
+            <h4>Filters</h4>
             <iframe src="jsbins/directives3.html" frameborder="0"></iframe>
           </section>
         </section>
@@ -336,11 +358,10 @@
           </section>
 
           <section>
-            <iframe src="jsbins/controllers2.html" frameborder="0"></iframe>
-          </section>
-
-          <section>
-            <img src="img/concepts-scope2.png" alt="">
+            <h4>Angular inspector</h4>
+            <p>Angular inspector built by the Angular devs.</p>
+            <p>With this inspector you can inspect scopes, profile and debug your app.</p>
+            <p>It's called <a href="https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk">Batarang</a>.</p>
           </section>
 
         </section>
@@ -534,6 +555,7 @@ angular.module("chasApp").controller("chasCtrl",["$scope","myService",function(b
               <li><a href="http://stackoverflow.com/a/15012542">How do I “think in AngularJS” if I have a jQuery background?</a></li>
               <li><a href="https://github.com/jmcunningham/AngularJS-Learning">AngularJS Learning Repo</a></li>
               <li><a href="http://www.youtube.com/watch?v=i9MHigUZKEM">AngularJS in 60-ish minutes</a></li>
+              <li><a href="https://github.com/angular-ui/ui-router">UI-Router from Angular UI team</a></li>
             </ul>
           </section>
         </section>
